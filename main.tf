@@ -19,7 +19,7 @@ resource "azurerm_public_ip" "example" {
 }
 
 data "template_file" "vmip" {
-  template = "${file("${vmip.tpl")}"
+  template = "${file("vmip.tpl")}"
   vars = {
     vm_ip = "${azurerm_public_ip.example.ip_address}"
   }
