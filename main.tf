@@ -24,3 +24,8 @@ data "template_file" "vmip" {
     vm_ip = "${azurerm_public_ip.example.ip_address}"
   }
 }
+
+resource "local_file" "foo" {
+    content     = data.template_file.vmip.rendered
+    filename = "foo.bar"
+}
